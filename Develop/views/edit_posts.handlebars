@@ -1,0 +1,18 @@
+<section>
+    <h3>Edit Post</h3>
+    <form class="form new-post-form">
+        <div>
+            Title: <br><input type="text" value="{{post.title}}" id="post-title" /><br>
+        </div>
+        <div>
+            Content: <br><input type="text" value="{{post.content}}" id="post-content" /><br>
+        </div>
+        <div>
+            <button id="update-btn" type="submit">Update</button>
+            <button id="delete-btn" type="submit">Delete</button>
+        </div>
+    </form>
+</section>
+
+<script src="/js/edit_post.js"></script>
+<script src="/js/delete_post.js"></script>
