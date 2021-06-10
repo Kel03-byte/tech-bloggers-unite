@@ -12,7 +12,7 @@ const editPostFormHandler = async (event) => {
     
     if (title && content) {
         const response = await fetch(`/api/post/${id}`, {
-            method: 'put',
+            method: 'PUT',
             body: JSON.stringify({
                 title,
                 content,
@@ -23,7 +23,7 @@ const editPostFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
-            alert('Failed to cupdate the post! ' + response.statusText);
+            alert('Failed to update the post! ' + response.statusText);
         }
     }
 }
