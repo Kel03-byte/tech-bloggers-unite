@@ -1,13 +1,16 @@
 const router = require('express').Router();
-const bcrypt = require('bcrypt');
 const User = require('../../models/User');
 
 router.post('/', async (req, res) => {
     try {
-        const newUser = req.body;
-        newUser.password = await bcrypt.hash(req.body.password, 10);
-        const userData = await User.create(newUser);
-        res.status(200).json(userData);
+        const userData = await User.create({
+            username: req.body.username,
+            password: req.body.password,
+        });
+        request.session.save(() => {
+            request.session.loggedIn = true;
+            res.status(200).json(userData);
+        });
     } catch (error) {
         res.status(400).json(error.message);
     }
@@ -31,6 +34,16 @@ router.post('/login', async (req, res) => {
         res.status(200).json({ message: 'You are now logged in!' });
     } catch (error) {
         res.status(500).json(error.message);
+    }
+});
+
+router.post('./logout', (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(200).end();
+        });
+    } else {
+        response.status(404).end();
     }
 });
 
