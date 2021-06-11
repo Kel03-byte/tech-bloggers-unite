@@ -4,9 +4,20 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
+const session = require('express-session');
+require('dotenv').config();
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+const sess = {
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: true,
+};
+
+app.use(session(sess));
 
 const hbs = exphbs.create({ helpers });
 

@@ -1,5 +1,8 @@
+//const { Post, User, Comment } = require('../models');
+const Post = require('../models/Post')
+const User = require('../models/User')
+const Comment = require('../models/Comment')
 const router = require('express').Router();
-const { User, Comment, Post } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
@@ -33,7 +36,7 @@ router.get('/', async (req, res) => {
         });
         const posts = postData.map((post) =>
             post.get({ plain: true }))
-        res.render('homepage', { posts, loggedIn: loginStatus }
+        res.render('homepage', { posts, loggedIn: req.session.loggedIn }
         );
     }
     catch (error) {
@@ -73,7 +76,7 @@ router.get('/post/:id', async (req, res) => {
         });
         const posts = postData.map((post) =>
             post.get({ plain: true }))
-        res.render('comment_posts', { posts, loggedIn: loginStatus }
+        res.render('comment_posts', { posts, loggedIn: req.session.loggedIn }
         );
     }
     catch (error) {
@@ -93,5 +96,18 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
     res.render('signup');
   });
+
+// router.get('/', async (req, res) => {
+
+//     res.render('homepage');
+// });
+
+// router.get('/signup', (req, res) => {
+//     res.render('signup');
+// });
+
+// router.get('/login', (req, res) => {
+//     res.render('login');
+// });
 
 module.exports = router;
