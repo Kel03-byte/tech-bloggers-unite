@@ -24,4 +24,5 @@ const newPostFormHandler = async (event) => {
     }
 }
 
-document.querySelector('#new-btn').addEventListener('click', newPostFormHandler);
+const logInButton = document.getElementById('new-btn')
+logInButton.addEventListener('click', newPostFormHandler);

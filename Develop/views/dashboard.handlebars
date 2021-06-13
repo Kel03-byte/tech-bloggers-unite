@@ -1,16 +1,10 @@
-  
-{{#if post.length}}
-<section>
-    <h2>Your Posts</h2>
-    {{#each posts as |post|}}
-        <a href="/dashboard/edit/{{id}}">{{title}}</a>
-        <p>{{format_date created_at}}</p>
-    {{/each}}
-</section>
-{{/if}}
+<div>DASHBOARD</div>
+<div>POST 1</div>
+<div>POST 2</div>
+<a href='/dashboard/new'>
+<button>+ NEW POST</button>
+</a>
 
-<button type="submit" class="btn">
-    <a href="/dashboard/new">+ New Post</a>
-</button>
-
-<script src="./js/new_post.js"></script>
+<a href='/dashboard/edit'>
+<button>+ EDIT POST</button>
+</a>
