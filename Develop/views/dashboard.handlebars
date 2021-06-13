@@ -1,16 +1,16 @@
-{{#if posts.length}}
-{{#each posts as |post|}}
-<section class="post-card">
-    {{> post_info post}}
-    <a href="/post/{{id}}">Continue to post →</a>
+<section class="mt-4 mx-4 px-2">
+    {{#if posts.length}}
+    {{#each posts as |post|}}
+    <section class="post-card">
+        {{> post_info post}}
+        <a href="/post/{{id}}">Continue to post →</a>
+    </section>
+    {{/each}}
+    {{/if}}
+
+
+    <button class="btn btn-dark" id="new-post"><a class="text-white" href='/dashboard/new'>+ NEW POST</a></button>
+
+    {{!-- </button><a href='/dashboard/edit'>+ EDIT POST</a> --}}
+
 </section>
-{{/each}}
-{{/if}}
-
-<a href='/dashboard/new'>
-<button>+ NEW POST</button>
-</a>
-
-<a href='/dashboard/edit'>
-<button>+ EDIT POST</button>
-</a>
