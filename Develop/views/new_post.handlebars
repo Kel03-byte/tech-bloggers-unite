@@ -1,12 +1,17 @@
-<section>
+<section class="border border-dark border-4">
     <h3>Create New Post</h3>
+
     <form class="form new-post-form">
-        <div>
-            Title: <br><input type="text" id="post-title" placeholder="Enter Your Title"/><br>
+
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input class="form-control" id="post-title" placeholder="Enter a title!">
         </div>
-        <div>
-            Content: <br><input type="text" placeholder="Enter Your Content" id="post-content"/><br>
+        <div class="mb-3">
+            <label class="form-label">Content</label>
+            <textarea class="form-control" id="post-content" placeholder="Enter Your Content" rows="3"></textarea>
         </div>
+
         <div>
             <button id="new-btn" type="submit">Create</button>
         </div>

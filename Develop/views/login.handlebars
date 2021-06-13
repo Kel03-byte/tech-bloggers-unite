@@ -1,23 +1,29 @@
-<h2>Login</h2>
+<section class="mt-4 mx-4 px-2 rounded border border-dark border-4">
 
-<form class="form login-form">
-    <div class="form-group">
-        <label for="user-login">Username</label>
-        <input class="form-input" type="text" id="user-login" />
-    </div>
+    <h3>Login</h3>
 
-    <div class="form-group">
-        <label for="password-login">Password</label>
-        <input class="form-input" id="password-login" />
-    </div>
+    <form class="my-2 form login-form">
 
-    <div class="form-group">
-        <button id="log-in-btn">Log In!</button>
-    </div>
+        <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-control" id="user-login" placeholder="Enter your username!">
+        </div>
 
-    <div class="form-group">
-        <a href='/signup'>Sign up instead!</a>
-    </div>
-</form>
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="text" class="form-control" id="password-login" placeholder="Enter your password!">
+        </div>
+
+        <div class="my-2 form-group d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-dark" id="log-in-btn">Log In!</button>
+        </div>
+
+        <div class="form-group">
+            <a class="text-dark" href='/signup'>Sign up instead!</a>
+        </div>
+
+    </form>
+
+</section>
 
 <script src="/js/login.js"></script>

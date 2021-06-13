@@ -1,6 +1,12 @@
-<div>DASHBOARD</div>
-<div>POST 1</div>
-<div>POST 2</div>
+{{#if posts.length}}
+{{#each posts as |post|}}
+<section class="post-card">
+    {{> post_info post}}
+    <a href="/post/{{id}}">Continue to post →</a>
+</section>
+{{/each}}
+{{/if}}
+
 <a href='/dashboard/new'>
 <button>+ NEW POST</button>
 </a>

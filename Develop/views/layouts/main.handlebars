@@ -5,25 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Tech Bloggers Unite</title>
 </head>
 
-<body>
-    <header>
-        <div>Tech Bloggers Unite!</div>
-        <nav>
-            <a href='/'>Home</a>
-            {{#if loggedIn}}
-            <a href='/dashboard'>Dashboard</a>
-            <button href='/' id='logout'>Log Out</button>
-            {{else}}
-            <a href='/login'>Log In</a>
-            <a href='/signup'>Sign Up</a>
-            {{/if}}
-        </nav>
-    </header>
+<body class="bg-info" >
+    <div id="page-header">
+        <header>
+
+            <nav class="nav">
+                <a class="text-info nav-link" href='/'>Home</a>
+                {{#if loggedIn}}
+                <a class="text-info nav-link" href='/dashboard'>Dashboard</a>
+                <a class="text-info nav-link" href='/' id='logout'>Log Out</a>
+                {{else}}
+                <a class="text-info nav-link" href='/login'>Log In</a>
+                <a class="text-info nav-link" href='/signup'>Sign Up</a>
+                {{/if}}
+            </nav>
+
+            <h1 class="text-info">Tech Bloggers Unite!</h1>
+        </header>
+    </div>
 
     <main>
         {{{ body }}}
