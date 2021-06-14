@@ -1,23 +1,27 @@
-{{> post_info post}}
-{{> comments post.comments}}
-
-{{#if loggedIn}}
-<div>
-    <form class="comment-form">
-        <h3>Comment</h3>
-        <div class="card-body">
-            <div>
-                <textarea id="comment-text"></textarea>
-            </div>
-
-            <div>
-                <button id="add-btn" type="submit">Submit</button>
-            </div>
-        </div>
-    </form>
+<div class="mt-4 mx-4 px-2 rounded border border-dark border-4">
+    <div>POST 1</div>
+    <div>Post-content</div>
 </div>
-{{/if}}
 
-{{#if loggedIn}}
+<div>
+    <form class="comment-form mt-4 mx-4 px-2 rounded border border-dark border-4">
+
+        <h5>Comment</h5>
+
+        <div class="card-body">
+            
+            <div>
+                <input type="text" class="form-control" id="comment-text" placeholder="Enter your password!">
+            </div>
+
+            <div>
+                <button id="add-btn" class="btn btn-dark my-2">Submit</button>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
 <script src="/js/comment_post.js"></script>
-{{/if}}

@@ -12,4 +12,8 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+router.get('/comment', (req, res) => {
+    res.render('comment_posts');
+});
+
 module.exports = router;
