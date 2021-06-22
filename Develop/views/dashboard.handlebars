@@ -1,16 +1,11 @@
 {{!-- Dashboard Page --}}
 
-<div>
-    <h2>Dashboard Page</h2>
-</div>
+<h2 id='dash-header'>Your Dashboard!</h2>
 
 {{#if posts.length}}
-<div>Your Post!</div>
-
-
 {{#each posts as |post|}}
 <p>{{>post-header post}}</p>
 {{/each}}
 {{/if}}
 
-<div><a href='/dashboard/new'>+ Add New</a></div>
+<button id='new-btn'><a href='/dashboard/new'>+ New Post</a></button>

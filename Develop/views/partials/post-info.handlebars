@@ -1,3 +1,7 @@
-<div><a href='/post/{{id}}'>{{post_title}}</a></div>
-<div>{{post_content}}</div>
-<div>Posted By: {{user.username}} {{format_date created_at}}</div>
+<div id='post-card'>
+    <div id='post-header'>
+        <a class='post-title' id='post-title' href='post/{{id}}'>{{post_title}}</a>
+        <a id='post-info'>Posted By: {{user.username}} {{format_date created_at}}</a>
+    </div>
+    <div id='post-text'>{{post_content}}</div>
+</div>

@@ -1,16 +1,21 @@
 {{!-- Edit Post Page --}}
 
-<section id="edit-post-container">
+<section id="form-container">
 
-    <h2>Edit Post Page</h2>
+    <div id='form-header'>
+        <h2>Edit Post</h2>
+    </div>
 
     <form>
-        <div>
-            <textarea id="post-title">{{post.post_title}}</textarea>
+        <div id='form-input'>
+            <label for="post-title">Title:</label>
+            <textarea type="text" class='edit-post' id="post-title" rows="1" cols="50" />{{post.post_title}}</textarea>
         </div>
 
-        <div>
-            <textarea id="post-content">{{post.post_content}}</textarea>
+        <div id='form-input'>
+            <label for="post-content">Content:</label>
+            <textarea type="text" class='edit-post' id="post-content" rows="8"
+                cols="50" />{{post.post_content}}</textarea>
         </div>
     </form>
 

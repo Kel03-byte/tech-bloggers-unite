@@ -23,9 +23,11 @@ const signupFormHandler = async (event) => {
       document.location.replace('/dashboard');
     } else {
       alert('Unable to sign you up!');
+      return
     }
-  } else {
-    alert('Please sign up!')
+  } else if (password < 8) {
+    alert('Password must be 8 or more characters!')
+    return
   }
 };
 
