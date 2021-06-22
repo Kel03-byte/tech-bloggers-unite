@@ -1,2 +1,2 @@
-# tech-bloggers-unite
+# Tech Bloggers Unite
 A blogging site for a tech lovers!!

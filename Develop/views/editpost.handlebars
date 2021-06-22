@@ -1,0 +1,27 @@
+{{!-- Edit Post Page --}}
+
+<section id="edit-post-container">
+
+    <h2>Edit Post Page</h2>
+
+    <form>
+        <div>
+            <textarea id="post-title">{{post.post_title}}</textarea>
+        </div>
+
+        <div>
+            <textarea id="post-content">{{post.post_content}}</textarea>
+        </div>
+    </form>
+
+    <div>
+        <button id='edit-post-btn'>Edit</button>
+    </div>
+
+    <div>
+        <button id='delete-post-btn'>Delete</button>
+    </div>
+</section>
+
+<script src="/js/editpost.js"></script>
+<script src="/js/deletepost.js"></script>

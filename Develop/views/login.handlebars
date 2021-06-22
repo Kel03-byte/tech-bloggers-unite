@@ -1,28 +1,24 @@
-<section class="mt-4 mx-4 px-2 rounded border border-dark border-4">
+{{!-- Log In Page --}}
 
-    <h3>Login</h3>
+<section id="login-container">
 
-    <form class="my-2 form login-form">
+    <h2>Log In</h2>
 
-        <div class="mb-3">
-            <label class="form-label">Username</label>
-            <input type="text" class="form-control" id="user-login" placeholder="Enter your username!">
+    <form>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" />
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Password</label>
-            <input type="text" class="form-control" id="password-login" placeholder="Enter your password!">
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" />
         </div>
-
-        <div class="my-2 form-group d-grid gap-2 col-6 mx-auto">
-            <button class="btn btn-dark" id="log-in-btn">Log In!</button>
-        </div>
-
-        <div class="form-group">
-            <a class="text-dark" href='/signup'>Click here to Sign up instead!</a>
-        </div>
-
     </form>
+
+    <div>
+        <button id="log-in-btn">Log in</button>
+    </div>
 
 </section>
 

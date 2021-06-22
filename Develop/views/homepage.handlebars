@@ -1,7 +1,12 @@
-<div>WELCOME!</div>
+{{!-- Home Page --}}
 
-<section class="mt-4 mx-4 px-2 rounded border border-dark border-4">
-    
-   <a href='/comment'>POST 1</a>
+<div>
+    <h2>Home Page</h2>
+</div>
 
-</section>
+
+{{#if posts.length}}
+{{#each posts as |post|}}
+<p>{{>post-info post}}</p>
+{{/each}}
+{{/if}}

@@ -1,5 +1,5 @@
 {
-  "name": "develop",
+  "name": "tech-bloggers-unite",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -8,10 +8,12 @@
     "start": "node server.js",
     "watch": "nodemon server.js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "chalk": "^4.1.1",
     "connect-session-sequelize": "^7.1.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",

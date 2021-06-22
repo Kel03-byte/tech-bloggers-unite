@@ -1,8 +1,14 @@
-const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
-const sequelize = require('../config/connection');
+// User Modal which sets up the User table in the database through Sequalize
 
-class User extends Model { }
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
+const bcrypt = require("bcrypt");
+
+class User extends Model {
+  checkPassword(loginPassword) {
+    return bcrypt.compareSync(loginPassword, this.password);
+  }
+}
 
 User.init(
   {
@@ -12,32 +18,32 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-
     username: {
-      allowNull: false,
       type: DataTypes.STRING,
+      allowNull: false,
     },
-
     password: {
-      allowNull: false,
       type: DataTypes.STRING,
-      validate: {
-        len: [8],
-      },
+      allowNull: false,
     },
   },
   {
+    // Hashes the password before saving to the database
     hooks: {
       beforeCreate: async (user) => {
-        user.password = await bcrypt.hash(user.password, 3)
+        user.password = await bcrypt.hash(user.password, 10);
+        return user;
+      },
+      // Hashes the password when the user updates their password and then saving to the database
+      async beforeUpdate(user) {
+        user.password = await bcrypt.hash(user.password, 10);
         return user;
       },
     },
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: "user",
   }
 );
 

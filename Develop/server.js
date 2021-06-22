@@ -1,35 +1,52 @@
-const path = require('path');
-const express = require('express');
-const exphbs = require('express-handlebars');
-const routes = require('./controllers');
+// Dependencies
+const path = require("path");
+const express = require("express");
+const exphbs = require("express-handlebars");
+const sessionMiddleware = require("express-session");
+const chalk = require("chalk");
 const helpers = require('./utils/helpers');
-const sequelize = require('./config/connection');
-const session = require('express-session');
-require('dotenv').config();
+
+// Stores all session data once user is signed in
+const SequelizeStore = require("connect-session-sequelize")(
+  sessionMiddleware.Store
+);
+
+const routes = require("./controllers");
+const sequelize = require("./config/connection");
 
 
+// Set up Express App
 const app = express();
-const PORT = process.env.PORT || 3005;
+const PORT = process.env.PORT || 3001;
 
-const sess = {
-  secret: process.env.SECRET,
+// Used to store session data
+const sessionMiddlewareConfiguration = {
+  secret: process.env.SECRET, // Key to the session
+  cookie: {},
   resave: false,
   saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
 };
 
-app.use(session(sess));
+app.use(sessionMiddleware(sessionMiddlewareConfiguration));
 
 const hbs = exphbs.create({ helpers });
 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 
+// Middleware to display CSS and JS files for displaying and functions
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
+// Sets up the server to start listening at a port
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () =>
+    console.log(chalk.magenta(`Now listening at port ${PORT}`))
+  );
 });

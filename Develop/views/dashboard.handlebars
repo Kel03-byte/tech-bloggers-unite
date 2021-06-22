@@ -1,16 +1,16 @@
-<section class="mt-4 mx-4 px-2">
-    {{#if posts.length}}
-    {{#each posts as |post|}}
-    <section class="post-card">
-        {{> post_info post}}
-        <a href="/post/{{id}}">Continue to post →</a>
-    </section>
-    {{/each}}
-    {{/if}}
+{{!-- Dashboard Page --}}
+
+<div>
+    <h2>Dashboard Page</h2>
+</div>
+
+{{#if posts.length}}
+<div>Your Post!</div>
 
 
-    <button class="btn btn-dark" id="new-post"><a class="text-white" href='/dashboard/new'>+ NEW POST</a></button>
+{{#each posts as |post|}}
+<p>{{>post-header post}}</p>
+{{/each}}
+{{/if}}
 
-    {{!-- </button><a href='/dashboard/edit'>+ EDIT POST</a> --}}
-
-</section>
+<div><a href='/dashboard/new'>+ Add New</a></div>
