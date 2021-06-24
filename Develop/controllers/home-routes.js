@@ -3,6 +3,7 @@
 const router = require("express").Router();
 const { Post, User, Comment } = require('../models');
 
+// Render All Posts
 router.get("/", async (request, response) => {
   try {
     const postData = await Post.findAll({
@@ -24,16 +25,7 @@ router.get("/", async (request, response) => {
   }
 });
 
-// Render Sign Up Page
-router.get("/signup", (request, response) => {
-  response.render("signup")
-});
-
-// Render Log In Page
-router.get("/login", (request, response) => {
-  response.render("login")
-});
-
+// Render One Post
 router.get('/post/:id', async (request, response) => {
   try {
       const postData = await Post.findByPk(request.params.id, {
@@ -77,6 +69,16 @@ router.get('/post/:id', async (request, response) => {
       console.log(error);
       response.status(500).json(error.message);
   }
+});
+
+// Render Sign Up Page
+router.get("/signup", (request, response) => {
+  response.render("signup")
+});
+
+// Render Log In Page
+router.get("/login", (request, response) => {
+  response.render("login")
 });
 
 module.exports = router;

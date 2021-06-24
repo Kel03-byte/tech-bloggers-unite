@@ -6,6 +6,9 @@ const { Comment } = require("../../models");
 router.get("/", async (request, response) => {
     try {
         const commentData = await Comment.findAll({
+            order: [
+                ['created_at', 'DESC'],
+            ],
         });
         response.status(200).json(commentData);
     } catch (error) {

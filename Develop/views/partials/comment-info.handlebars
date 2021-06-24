@@ -1,8 +1,8 @@
+{{#each this}}
 <div id='comment-card'>
-    {{#each this}}
     <div>
-        <a id='comment-content'>{{comment_text}}</a>
-        <a id='comment-info'>- {{user.username}} {{format_date created_at}}</a>
+        <p id='comment-content'>{{comment_text}}</p>
+        <p id='comment-info'>- {{user.username}}, {{format_date created_at}}</p>
     </div>
-    {{/each}}
 </div>
+{{/each}}

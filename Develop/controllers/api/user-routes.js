@@ -1,9 +1,9 @@
 // User Route to find and create a User
 
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Post, Comment } = require("../../models");
 
-// Get all Users
+// Get All Users
 router.get("/", async (request, response) => {
   try {
     const userData = await User.findAll({
@@ -16,23 +16,44 @@ router.get("/", async (request, response) => {
   }
 });
 
+// Get One User
+router.get('/user/:id', async (request, response) => {
+  try {
+    const userData = await User.findByPk(request.params.id, {
+      where: {
+        id: request.params.id,
+      },
+      include: [{ model: Post }, { model: Comment }],
+    });
+    if (!userData) {
+      response.status(404).json({ message: 'No post found with that id' });
+      return;
+    }
+    const post = userData.get({ plain: true });
+    response.render('singlepost', { post, loggedIn: request.session.loggedIn });
+  } catch (error) {
+    console.log(error);
+    response.status(500).json(error.message);
+  }
+});
+
 // Create a new User (sign up)
 router.post('/', async (request, response) => {
   try {
-      const userData = await User.create({
-          username: request.body.username,
-          password: request.body.password,
-      });
-      request.session.save(() => {
-          request.session.user_id = userData.id;
-          request.session.username = userData.username;
-          request.session.loggedIn = true;
+    const userData = await User.create({
+      username: request.body.username,
+      password: request.body.password,
+    });
+    request.session.save(() => {
+      request.session.user_id = userData.id;
+      request.session.username = userData.username;
+      request.session.loggedIn = true;
 
-          response.status(200).json({user: userData, message: "You are now signed up!"});
-      });
+      response.status(200).json({ user: userData, message: "You are now signed up!" });
+    });
   } catch (error) {
-      console.log(error.message);
-      response.status(500).json(error.message);
+    console.log(error.message);
+    response.status(500).json(error.message);
   }
 });
 
