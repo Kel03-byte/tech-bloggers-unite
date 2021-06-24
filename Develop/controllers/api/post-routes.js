@@ -1,4 +1,4 @@
-// Post Route to find and create a Post
+// Post Route to create, edit and delete a Post
 
 const router = require("express").Router();
 const { Post } = require("../../models");
@@ -12,7 +12,6 @@ router.post('/', async (request, response) => {
             user_id: request.session.user_id
         });
         request.session.save(() => {
-            request.session.post_id = postData.id;
             request.session.loggedIn = true;
 
             response.status(200).json({ postData, message: "Your post has been created!" });

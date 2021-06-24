@@ -43,26 +43,26 @@ router.get('/new', async (request, response) => {
 
 router.get('/edit/:id', async (request, response) => {
     try {
-      const postData = await Post.findByPk(request.params.id, {
-        where: {
-          id: request.params.id,
-        },
-        include: [{ model: User }],
-              attributes: [
-                  'id',
-                  'post_title',
-                  'post_content',
-                  'created_at'
-              ],
-      });
-      const post = postData.get({ plain: true });
-      response.render("editpost", {
-        post,
-        loggedIn: request.session.loggedIn
-      });
+        const postData = await Post.findByPk(request.params.id, {
+            where: {
+                id: request.params.id,
+            },
+            include: [{ model: User }],
+            attributes: [
+                'id',
+                'post_title',
+                'post_content',
+                'created_at'
+            ],
+        });
+        const post = postData.get({ plain: true });
+        response.render("editpost", {
+            post,
+            loggedIn: request.session.loggedIn
+        });
     } catch (error) {
-      response.status(500).json(error.message);
+        response.status(500).json(error.message);
     }
-  });
+});
 
 module.exports = router;
