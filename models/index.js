@@ -1,4 +1,4 @@
-// Maps the three modals together and starts building the associated tables
+// Maps the three models together and starts building the associated tables
 
 const User = require("./User");
 const Post = require("./Post");

@@ -1,10 +1,11 @@
-// Post Route to create, edit and delete a Post
+// Post Route to Create, Edit and Delete a Post
 
 const router = require("express").Router();
 const { Post } = require("../../models");
+const withAuth = require('../../utils/auth');
 
 // Create a new Post
-router.post('/', async (request, response) => {
+router.post('/', withAuth, async (request, response) => {
     try {
         const postData = await Post.create({
             post_title: request.body.post_title,
@@ -23,7 +24,7 @@ router.post('/', async (request, response) => {
 });
 
 // Edit a Post
-router.put('/:id', async (request, response) => {
+router.put('/:id', withAuth, async (request, response) => {
     try {
         const postData = await Post.update({
             post_title: request.body.post_title,
@@ -45,7 +46,7 @@ router.put('/:id', async (request, response) => {
 });
 
 // Delete a Post
-router.delete('/:id', async (request, response) => {
+router.delete('/:id', withAuth, async (request, response) => {
     try {
         const postData = await Post.destroy({
             where: {

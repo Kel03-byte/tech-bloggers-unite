@@ -1,4 +1,4 @@
-// User Modal which sets up the User table in the database through Sequalize
+// User Model - stores the Username and hashed Password to the database
 
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");

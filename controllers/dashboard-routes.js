@@ -2,9 +2,10 @@
 
 const router = require('express').Router();
 const { Post, User } = require('../models');
+const withAuth = require('../utils/auth');
 
 // Render Dashboard Page
-router.get("/", async (request, response) => {
+router.get("/", withAuth, async (request, response) => {
     try {
         const postData = await Post.findAll({
             where: {
@@ -32,7 +33,8 @@ router.get("/", async (request, response) => {
     }
 });
 
-router.get('/new', async (request, response) => {
+// Render New Post Page
+router.get('/new', withAuth, async (request, response) => {
     try {
         response.render('newpost', { loggedIn: request.session.loggedIn });
     } catch (error) {
@@ -41,7 +43,8 @@ router.get('/new', async (request, response) => {
     }
 });
 
-router.get('/edit/:id', async (request, response) => {
+// Render Edit Post Page
+router.get('/edit/:id', withAuth, async (request, response) => {
     try {
         const postData = await Post.findByPk(request.params.id, {
             where: {

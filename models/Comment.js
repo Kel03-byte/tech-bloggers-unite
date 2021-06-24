@@ -1,3 +1,5 @@
+// Comment Model - stores Comments to the Database
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 

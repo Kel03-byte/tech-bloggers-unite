@@ -1,6 +1,7 @@
 // Post Route to create a Comment
 
 const router = require("express").Router();
+const withAuth = require('../../utils/auth');
 const { Comment } = require("../../models");
 
 router.get("/", async (request, response) => {
@@ -18,7 +19,7 @@ router.get("/", async (request, response) => {
 });
 
 // Create a new Comment
-router.post('/', async (request, response) => {
+router.post('/', withAuth, async (request, response) => {
     try {
         if (request.session) {
             const commentData = await Comment.create({

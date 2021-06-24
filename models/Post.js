@@ -1,3 +1,5 @@
+// Post Model - stores Posts to the Database
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 

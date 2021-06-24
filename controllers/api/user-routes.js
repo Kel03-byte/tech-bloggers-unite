@@ -1,4 +1,4 @@
-// User Route to find and create a User
+// User Route to Find and Create a User and Log Out
 
 const router = require("express").Router();
 const { User, Post, Comment } = require("../../models");

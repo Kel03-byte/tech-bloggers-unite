@@ -5,6 +5,8 @@ body {
     background-size: cover;
 }
 
+
+/* Main Header Style*/
 header {
     background-color: rgb(66, 65, 65);
     padding: 20px;
@@ -42,6 +44,7 @@ header {
     font-size: 30px;
 }
 
+/* Sign Up, Login, Edit, New and Single Post Form Style */
 #form-container {
     width: 90%;
     border: solid 2px;
@@ -64,6 +67,7 @@ header {
     font-size: 20px;
 }
 
+/* User Input Style */
 #username {
     width: 100%;
     padding-top: 10px;
@@ -74,18 +78,6 @@ header {
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
-}
-
-#post-card {
-    width: 90%;
-    border: solid 2px;
-    margin-left: 5%;
-    background-color: white;
-}
-#post-header {
-    background-color: rgb(66, 65, 65);
-    color: rgb(240, 168, 240);
-    padding: 10px;
 }
 
 .post-title {
@@ -104,14 +96,6 @@ header {
     font-size: 20px;
 }
 
-#post-text {
-    padding: 10px;
-}
-
-#post-info {
-    float: right;
-}
-
 .edit-post {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
@@ -121,6 +105,44 @@ header {
     padding-bottom: 10px;
 }
 
+/* Individual Post Style */
+#post-card {
+    width: 90%;
+    border: solid 2px;
+    margin-left: 5%;
+    background-color: white;
+}
+#post-header {
+    background-color: rgb(66, 65, 65);
+    color: rgb(240, 168, 240);
+    padding: 10px;
+}
+#post-text {
+    padding: 10px;
+}
+
+#post-info {
+    float: right;
+}
+
+/* Individual Comment Style */
+#comment-header {
+    margin-left: 8%;
+    font-weight: bold;
+}
+
+#comment-card {
+    background-color: rgb(66, 65, 65);
+    color: white;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-left: 15px;
+}
+
+/* Click Button Style */
 #add-post-btn {
     margin-top: 50px;
     width: 90%;
@@ -206,20 +228,4 @@ header {
     color: white;
     cursor: pointer;
     font-size: 20px;
-}
-
-#comment-header {
-    margin-left: 8%;
-    font-weight: bold;
-}
-
-#comment-card {
-    background-color: rgb(66, 65, 65);
-    color: white;
-    margin-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-left: 10%;
-    margin-right: 10%;
-    padding-left: 15px;
 }

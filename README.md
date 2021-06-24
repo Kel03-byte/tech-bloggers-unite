@@ -34,7 +34,7 @@ To Install this app onto your own computer:
 * After the database is created type "quit" to exit out of the MYSQL terminal command
 * Then lastly type "npm run watch" to start the server!
 
-Otherwise just click on the 'deyployed website' link in the Links Section to use the app!
+Otherwise just click on the 'deployed website' link in the Links Section to use the app!
 
 ## Usage
 

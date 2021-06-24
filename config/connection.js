@@ -1,3 +1,5 @@
+// Sets Up a connect to a Database where we save the User, Post and Comment Info
+
 const Sequelize = require("sequelize");
 require("dotenv").config();
 
