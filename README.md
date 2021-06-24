@@ -34,7 +34,7 @@ To Install this app onto your own computer:
 * After the database is created type "quit" to exit out of the MYSQL terminal command
 * Then lastly type "npm run watch" to start the server!
 
-Otherwise just click on the link in the Links Section to use the app!
+Otherwise just click on the 'deyployed website' link in the Links Section to use the app!
 
 ## Usage
 
@@ -44,24 +44,27 @@ Otherwise just click on the link in the Links Section to use the app!
 ## Links
 
 * gitHub: https://github.com/Kel03-byte/tech-bloggers-unite
-* Deployed website:  
+* Deployed website: https://tech-bloggers-unite.herokuapp.com/
 
 ## Screenshots
 
 Homepage
-![Homepage]()
+![Home Page](assets/homepage.png)
 
 Sign Up Page
-![Sign Up]()
+![Sign Up](assets/signup.png)
 
 Log In Page
-![Log In]()
+![Log In](assets/login.png)
+
+Dashboard Page
+![Dashboard](assets/dashboard.png)
 
 Add A New Post Page
-![Add A Post]()
+![Add A Post](assets/create.png)
 
 Add A Comment Page
-![Add A Comment]()
+![Add A Comment](assets/comment.png)
 
 Edit A Post Page
-![Edit A Post]()
+![Edit A Post](assets/edit.png)
